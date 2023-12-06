@@ -2,10 +2,13 @@ import Link from "next/link";
 
 export default function Login() {
   return (
-    <form action="">
-      <h1>Welcome back!</h1>
+    <form
+      className="w-[400px] h-[650px] p-3 mx-auto rounded-2xl shadow-2xl"
+      action=""
+    >
+      <h1 className="text-2xl">Welcome back!</h1>
       <h2>Login to you account</h2>
-      <label className="name" htmlFor="name">
+      <label className="" htmlFor="name">
         User name
       </label>
       <input type="text" id="name" />
