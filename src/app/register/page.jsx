@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Input from "@/components/input";
+import SubmitButton from "@/components/button";
+import Label from "@/components/label";
 
 function Register() {
   const [inputs, setInputs] = useState({});
@@ -19,35 +22,26 @@ function Register() {
 
   return (
     <div id="id">
-      <form
-        onSubmit={handleSubmit}
-        className="w-[400px] h-[650px] p-3 mx-auto rounded-2xl shadow-2xl"
-      >
-        <h1>Get started</h1>
-        <h2>Create your account now</h2>
-        <label className="name">User name</label>
-        <input
-          className="block w-full rounded-md border-0 py-1.5 px-3 text-black ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 active:ring-1 active:ring-gray-400 sm:text-sm sm:leading-6"
-          type="text"
-          id="name"
-          name="name"
-          onChange={handleChange}
-        />
+      <form className="w-[450px] h-[600px] font-inter p-9 mt-12 mx-auto rounded-3xl shadow-[0_0_20px_1px_#bebebe]">
+        <h1 className="text-[2.6rem] font-semibold">Get started</h1>
+        <h2 className="text-base ml-1 mb-10 mt-2 text-stone-400 font-normal">
+          Create your account now
+        </h2>
+        <Label labelValue="User name" />
+        <Input name="name" type="text" onChange={handleChange} />
 
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" onChange={handleChange} />
+        <Label labelValue="Email" />
+        <Input name="email" type="email" onChange={handleChange} />
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          onChange={handleChange}
-        />
+        <Label labelValue="Password" />
+        <Input type="password" name="password" onChange={handleChange} />
 
-        <input className="button" type="submit" value="Signup" />
-        <div className="acc-ask">
-          Already have account?<Link href="/login"> Login</Link>
+        <SubmitButton onSubmit={handleSubmit} value="Sign up" />
+        <div className="text-sm text-stone-400 text-center">
+          Already have account?{" "}
+          <Link className="text-cyan-700 underline" href="/login">
+            Login
+          </Link>
         </div>
       </form>
     </div>

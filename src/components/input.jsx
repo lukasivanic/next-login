@@ -1,11 +1,9 @@
-export default function input() {
+export default function Input(props) {
   return (
     <input
-      className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-      type="text"
-      id="name"
-      name="name"
-      onChange={handleChange}
+      type={props.type}
+      name={props.name}
+      className="block w-full rounded-xl my-3 border-0 py-2 px-3 text-black ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-1 focus:ring-gray-400 text-lg leading-7"
     />
   );
 }

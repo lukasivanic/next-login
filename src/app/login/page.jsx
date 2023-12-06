@@ -1,24 +1,30 @@
 import Link from "next/link";
+import Input from "@/components/input";
+import SubmitButton from "@/components/button";
+import Label from "@/components/label";
 
 export default function Login() {
   return (
     <form
-      className="w-[400px] h-[650px] p-3 mx-auto rounded-2xl shadow-2xl"
+      className="w-[450px] h-[500px] font-inter p-9 mt-12 mx-auto rounded-3xl shadow-[0_0_20px_1px_#bebebe]"
       action=""
     >
-      <h1 className="text-2xl">Welcome back!</h1>
-      <h2>Login to you account</h2>
-      <label className="" htmlFor="name">
-        User name
-      </label>
-      <input type="text" id="name" />
+      <h1 className="text-[2.6rem] font-semibold">Welcome back!</h1>
+      <h2 className="text-base ml-1 mb-10 mt-2 text-stone-400 font-normal">
+        Login to you account
+      </h2>
+      <Label labelValue="User name" />
+      <Input name="name" type="text" />
 
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" />
+      <Label labelValue="Password" />
+      <Input type="password" name="password" />
 
-      <input className="button" type="submit" value="Login" />
-      <div className="acc-ask">
-        Don&apos;t have account?<Link href="/register"> Sign in</Link>
+      <SubmitButton value="Login" />
+      <div className="text-sm text-stone-400 text-center">
+        Don&apos;t have account?{" "}
+        <Link className="text-cyan-700 underline" href="/register">
+          Sign in
+        </Link>
       </div>
     </form>
   );
