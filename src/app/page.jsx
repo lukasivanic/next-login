@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 
-export default function Page() {
+export default async function Page() {
   return (
     <main>
       <Link href={"/login"}>Login</Link>

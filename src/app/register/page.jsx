@@ -1,26 +1,33 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import Input from "@/components/input";
 import SubmitButton from "@/components/button";
 import Label from "@/components/label";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 function Register() {
   const [inputs, setInputs] = useState({});
-
+  async function main(e) {
+    await prisma.user.create({
+      name: { name: inputs },
+      email: { email: inputs },
+      password: { password: inputs },
+    });
+  }
   const inputHandle = (name, value) => {
     setInputs((values) => ({ ...values, [name]: value }));
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
     console.log(inputs);
   };
   return (
     <div id="id">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={main}
         className="w-[450px] h-[600px] font-inter p-9 mt-12 mx-auto rounded-3xl shadow-[0_0_20px_1px_#bebebe]"
       >
         <h1 className="text-[2.6rem] font-semibold">Get started</h1>
